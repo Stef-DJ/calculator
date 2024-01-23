@@ -1,0 +1,24 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-body{
+    border: 2px solid red; 
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+
+}
+
+.area-for-buttons{
+    display: grid;
+}
+
+button{
+    border-radius: 4px;
+    background-color: white;
+    border: 2px solid black;
+
+}
