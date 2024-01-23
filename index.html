@@ -5,45 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Calculator</title>
+    <script src="calculator.js" defer></script>
 </head>
 <body>
-    <section class="calculator-body">
+    <main class="calculator-body">
         <section class="calculator-screen">
-            <p>NUMBERS go here</p>
+            <input id="screen-input" type="text" placeholder="0">
         </section>
         <section class="area-for-buttons">
-            <section class="first-row-buttons">
-                <button onclick="">(</button>
-                <button onclick="">)</button>
-                <button onclick="">%</button>
-                <button onclick="">AC</button>
+            <section class="buttons-row">
+                <button id="ce-button" onclick="clearEntry()">CE</button>
+                <button onclick="putCharacterToScreen('!')">x!</button>
+                <button onclick="putCharacterToScreen('(')">(</button>
+                <button onclick="putCharacterToScreen(')')">)</button>
+                <button onclick="putCharacterToScreen('%')">%</button>
+                <button id="ac-button" onclick="allClear()">AC</button>
             </section>
-            <section class="second-row-buttons">
-                <button onclick="">7</button>
-                <button onclick="">8</button>
-                <button onclick="">9</button>
-                <button onclick="">/</button>
+            <section class="buttons-row">
+                <button onclick="putCharacterToScreen('10^(')">10^</button>
+                <button onclick="putCharacterToScreen('sin(')">sin</button>
+                <button class="numeric" onclick="putCharacterToScreen(7)">7</button>
+                <button class="numeric" onclick="putCharacterToScreen(8)">8</button>
+                <button class="numeric" onclick="putCharacterToScreen(9)">9</button>
+                <button onclick="putCharacterToScreen('/')">÷</button>
             </section>
-            <section class="third-row-buttons">
-                <button onclick="">4</button>
-                <button onclick="">5</button>
-                <button onclick="">6</button>
-                <button onclick="">X</button>
+            <section class="buttons-row">
+                <button onclick="putCharacterToScreen('√(')">√</button>
+                <button onclick="putCharacterToScreen('cos(')">cos</button>
+                <button class="numeric" onclick="putCharacterToScreen(4)">4</button>
+                <button class="numeric" onclick="putCharacterToScreen(5)">5</button>
+                <button class="numeric" onclick="putCharacterToScreen(6)">6</button>
+                <button onclick="putCharacterToScreen('x')">x</button>
             </section>
-            <section class="forth-row-buttons">
-                <button onclick="">1</button>
-                <button onclick="">2</button>
-                <button onclick="">3</button>
-                <button onclick="">-</button>
+            <section class="buttons-row">
+                <button onclick="putCharacterToScreen('ln(')">ln</button>
+                <button onclick="putCharacterToScreen('tan(')">tan</button>
+                <button class="numeric" onclick="putCharacterToScreen(1)">1</button>
+                <button class="numeric" onclick="putCharacterToScreen(2)">2</button>
+                <button class="numeric" onclick="putCharacterToScreen(3)">3</button>
+                <button onclick="putCharacterToScreen('-')">-</button>
             </section>
-            <section class="forth-row-buttons">
-                <button onclick="">0</button>
-                <button onclick="">.</button>
-                <button onclick="">=</button>
-                <button onclick="">+</button>
+            <section class="buttons-row">
+                <button onclick="putCharacterToScreen('e')">e</button>
+                <button onclick="putCharacterToScreen('pi')">pi</button>
+                <button class="numeric" onclick="putCharacterToScreen(0)">0</button>
+                <button onclick="putCharacterToScreen('.')">.</button>
+                <button id="equal-button" onclick="equals()">=</button>
+                <button onclick="putCharacterToScreen('+')">+</button>
             </section>
         </section>
-    </section>
+    </main>
 </body>
 </html>
 
