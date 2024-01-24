@@ -279,10 +279,15 @@ function postFixEvaluation(expression){
 function putCharacterToScreen(value){
     let screen = document.getElementById("screen-input");
 
-    if(value==="^" && screen.value==0)
+    if(!isNaN(value) && screen.value.length!==0 && screen.value[screen.value.length-1]===")"){
+        screen.value += "x" + value;
+        return;
+    }
+
+    if(value==="^" && screen.value.length==0)
         return;
     if(value==="(" && (!isNaN(screen.value.slice(-1)) || screen.value[screen.value.length-1]===")")){
-        if(screen.value==0){
+        if(screen.value.length==0){
             screen.value +='(';
             return;
         }
