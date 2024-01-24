@@ -180,7 +180,6 @@ function convertExpressionToArray(express){
             }
         }
     }
-    console.log(expressionArr);
     return expressionArr;
 }
 
@@ -252,7 +251,6 @@ function shuntingYardAlgorithm(expressionArr){
     });
 
     queue, stack = addStackToQueueUntilBracket(queue, stack);
-    console.log(queue);
     return queue;
 }
 
@@ -345,7 +343,6 @@ function equals(){
     let screen = document.getElementById("screen-input");
     if(!areParenthesesBalanced(screen.value)){
         alert("Brackets don't match");
-        console.log("Brackets don't match");
         return;
     }
     let rawExpression = convertExpressionToArray(screen.value);
