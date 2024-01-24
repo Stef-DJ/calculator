@@ -89,7 +89,7 @@ let mod = {
     numberOfOperands: 2,
     operatorPrecedence: 2,
     apply: function(num) {
-        return Math.tan(num[0]%num[1]);
+        return num[0]%num[1];
     }
 };
 
@@ -279,10 +279,13 @@ function postFixEvaluation(expression){
 function putCharacterToScreen(value){
     let screen = document.getElementById("screen-input");
 
-    if(value==="(" && screen.value==0)
+    if(value==="^" && screen.value==0)
         return;
-
     if(value==="(" && (!isNaN(screen.value.slice(-1)) || screen.value[screen.value.length-1]===")")){
+        if(screen.value==0){
+            screen.value +='(';
+            return;
+        }
         screen.value += 'x(';
     }
     else{
@@ -301,25 +304,31 @@ function clearEntry(){
     screen.value = screen.value.slice(0,-1);
 }
 
-function bracketsCorrect(expression){
-    let haveSeenOpenBracket = false;
-    for(val of expression){
-        if(val===")" && !haveSeenOpenBracket)
-            return false;
-        if(val==="(")
-            haveSeenOpenBracket = true;
-    }
-    if(expression.includes('(') || expression.includes(')')){
-        if(expression.split('(').length - 1 != expression.split(')').length){
-            return false;
+function areParenthesesBalanced(expression) {
+    const stack = [];
+    const openingBrackets = ['('];
+    const closingBrackets = [')'];
+
+    for (let char of expression) {
+        if (openingBrackets.includes(char)) {
+            stack.push(char);
+        } else if (closingBrackets.includes(char)) {
+            const lastOpeningBracket = stack.pop();
+            const expectedOpeningBracket = openingBrackets[closingBrackets.indexOf(char)];
+            
+            if (!lastOpeningBracket || lastOpeningBracket !== expectedOpeningBracket) {
+                return false;
+            }
         }
     }
-    return true;
+
+    return stack.length === 0;
 }
+
 
 function equals(){
     let screen = document.getElementById("screen-input");
-    if(!bracketsCorrect(screen.value)){
+    if(!areParenthesesBalanced(screen.value)){
         alert("Brackets don't match");
         console.log("Brackets don't match");
         return;

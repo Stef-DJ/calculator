@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Calculator</title>
+    <script src="calculator.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <section class="display">
+            <input id="screen" type="text" placeholder="0">
+        </section>
+
+        <section class="btns">
+            <section class="row">
+                <button id="ce" onclick="backspc()">CE</button>
+                <button onclick="fact()">x!</button>
+                <button class="btn" onclick="getOperator('(')">(</button>
+                <button class="btn" onclick="getOperator(')')">)</button>
+                <button class="btn" onclick="getOperator('%')">%</button>
+                <button id="ac" onclick="clear()">AC</button>
+            </section>
+
+            <section class="row">
+                <button onclick="getOperator('sin(')">sin</button>
+                <button onclick="pi()">π</button>
+                <button class="btn" onclick="getNumber(7)">7</button>
+                <button class="btn" onclick="getNumber(8)">8</button>
+                <button class="btn" onclick="getNumber(9)">9</button>
+                <button class="btn" onclick="getOperator('/')">÷</button>
+            </section>
+
+            <section class="row">
+                <button onclick="cos()">cos</button>
+                <button onclick="log()">log</button>
+                <button class="btn" onclick="getNumber(4)">4</button>
+                <button class="btn" onclick="getNumber(5)">5</button>
+                <button class="btn" onclick="getNumber(6)">6</button>
+                <button class="btn" onclick="getOperator('*')">x</button>
+            </section>
+
+            <section class="row">
+                <button onclick="tan()">tan</button>
+                <button onclick="sqrt()">√</button>
+                <button class="btn" onclick="getNumber(1)">1</button>
+                <button class="btn" onclick="getNumber(2)">2</button>
+                <button class="btn" onclick="getNumber(3)">3</button>
+                <button class="btn" onclick="getOperator('-')">-</button>
+            </section>
+
+            <section class="row">
+                <button onclick="e()">e</button>
+                <button onclick="pow()">x <span style="position: relative; bottom: .4em; right: .1em;">y</span> </button>
+                <button class="btn" onclick="getNumber(0)">0</button>
+                <button class="btn" onclick="getNumber('.')">.</button>
+                <button id="equal" onclick="calculate(getElementById('screen').value)">=</button>
+                <button class="btn" onclick="getOperator('+')">+</button>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
